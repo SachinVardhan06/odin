@@ -26,10 +26,10 @@ returns, addresses, profile). API URLs opened directly return JSON.
 
 ## Deploy
 
-The repository includes `render.yaml`. On [Render](https://render.com), choose
-**New → Blueprint**, pick this repository, and it builds with `npm install` and starts with
-`npm start`. `HOST` is set to `0.0.0.0` so the service binds correctly; `PORT` is supplied by
-the platform.
+On [Render](https://render.com), either choose **New → Blueprint** to use the included
+`render.yaml`, or create a Web Service by hand with build command `npm install` and start
+command `npm start`. Both work: the server binds to `0.0.0.0` automatically whenever the
+platform supplies `PORT`, and no environment variables are required.
 
 ## Endpoints
 
