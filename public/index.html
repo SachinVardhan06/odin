@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northwind · Customer portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23818cf8'/%3E%3Cstop offset='1' stop-color='%233730a3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Cpath d='M10 22V10l12 12V10' stroke='white' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Apply the saved theme before first paint to avoid a flash.
+    (function () {
+      var pref = 'system';
+      try { pref = localStorage.getItem('theme') || 'system'; } catch (e) {}
+      var dark = pref === 'dark' || (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    })();
+  </script>
+</head>
+<body>
+  <!-- ================= Sign in ================= -->
+  <section id="view-login" class="hidden">
+    <div class="auth view">
+      <div class="auth-art">
+        <a class="logo" href="#/login">
+          <span class="logo-mark" data-icon="logo"></span>
+          Northwind
+        </a>
+        <div class="collage" id="login-collage"></div>
+        <div>
+          <h2>Everything for a better desk.</h2>
+          <p>Shop gear, track deliveries and manage returns from one account.</p>
+        </div>
+      </div>
+      <div class="auth-form">
+        <h1>Welcome back</h1>
+        <p>Sign in to your Northwind account.</p>
+        <form id="login-form" novalidate>
+          <div class="field">
+            <label for="username">Username</label>
+            <input id="username" class="input" autocomplete="username" required>
+          </div>
+          <div class="field">
+            <div class="label-row">
+              <label for="password">Password</label>
+              <a href="#/login" tabindex="-1">Forgot password?</a>
+            </div>
+            <input id="password" class="input" type="password" autocomplete="current-password" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="login-btn">Sign in</button>
+          <div id="login-error" class="notice notice-error"></div>
+        </form>
+        <div class="auth-foot">&copy; 2026 Northwind Supply Co. &nbsp;·&nbsp; Privacy &nbsp;·&nbsp; Terms</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= App ================= -->
+  <div id="app" class="hidden">
+    <header class="header">
+      <div class="header-inner">
+        <a class="logo" href="#/orders">
+          <span class="logo-mark" data-icon="logo"></span>
+          Northwind
+        </a>
+        <nav class="nav" id="nav">
+          <a href="#/shop" data-route="shop"><span data-icon="bag"></span>Shop</a>
+          <a href="#/orders" data-route="orders"><span data-icon="box"></span>Orders</a>
+          <a href="#/returns" data-route="returns"><span data-icon="return"></span>Returns</a>
+          <a href="#/addresses" data-route="addresses"><span data-icon="pin"></span>Addresses</a>
+        </nav>
+        <div class="header-right">
+          <button class="icon-btn" id="theme-btn" title="Toggle dark mode" aria-label="Toggle dark mode"></button>
+          <a class="icon-btn" href="#/cart" title="Cart" aria-label="Cart">
+            <span data-icon="cart" data-size="lg"></span>
+            <span class="cart-count hidden" id="cart-count">0</span>
+          </a>
+          <div class="account">
+            <button class="account-btn" id="account-btn" aria-haspopup="true" aria-expanded="false">
+              <span class="avatar" id="avatar"></span>
+              <span data-icon="chevron-down" class="faint"></span>
+            </button>
+            <div class="menu hidden" id="account-menu">
+              <div class="menu-head"><strong id="menu-name"></strong><span id="menu-handle"></span></div>
+              <a href="#/profile"><span data-icon="user"></span>Profile</a>
+              <a href="#/orders"><span data-icon="box"></span>My orders</a>
+              <hr>
+              <button id="logout"><span data-icon="logout"></span>Sign out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav">
+        <a href="#/shop" data-route="shop">Shop</a>
+        <a href="#/orders" data-route="orders">Orders</a>
+        <a href="#/returns" data-route="returns">Returns</a>
+        <a href="#/addresses" data-route="addresses">Addresses</a>
+        <a href="#/profile" data-route="profile">Profile</a>
+      </nav>
+    </header>
+
+    <main class="page" id="page"></main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <span>&copy; 2026 Northwind Supply Co.</span>
+        <span>Free shipping over $50 &nbsp;·&nbsp; 30-day returns &nbsp;·&nbsp; Support Mon–Fri, 9am–6pm</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"><span data-icon="check-circle"></span><span id="toast-text"></span></div>
+  <div id="modal-root"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

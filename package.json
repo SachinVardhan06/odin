@@ -1,0 +1,24 @@
+{
+  "name": "order-api",
+  "version": "1.0.0",
+  "description": "Internal order management REST API",
+  "main": "src/server.js",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "jest --runInBand"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "4.21.2"
+  },
+  "devDependencies": {
+    "jest": "29.7.0",
+    "supertest": "7.1.4"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
