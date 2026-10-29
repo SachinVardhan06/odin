@@ -3,6 +3,9 @@
 Northwind customer portal: a small Node.js / Express REST API with an in-memory
 store and a single-page web front end in `public/`.
 
+Live demo: **https://odin-1-3x8y.onrender.com** — sign in as `alice` / `alice-pass-123`.
+The free instance sleeps when idle, so the first request after a pause takes around a minute.
+
 > **Training app — contains a deliberate vulnerability.**
 > This is a practice target for application security work, not a real product. `GET /orders/:id`
 > and `PUT /orders/:id` authenticate the caller but never check that the order belongs to them,
