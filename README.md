@@ -29,10 +29,19 @@ returns, addresses, profile). API URLs opened directly return JSON.
 
 ## Deploy
 
-On [Render](https://render.com), either choose **New → Blueprint** to use the included
-`render.yaml`, or create a Web Service by hand with build command `npm install` and start
-command `npm start`. Both work: the server binds to `0.0.0.0` automatically whenever the
-platform supplies `PORT`, and no environment variables are required.
+The portal runs with no backend at all. `public/bootstrap.js` asks for `/health` on start:
+if JSON comes back the Express API is serving the page, and if not the page installs
+`public/mock-api.js`, an in-browser copy of the same routes. Either way the UI behaves the same.
+
+**As a static site (no server, nothing to keep running):** publish the `public/` folder.
+On [Render](https://render.com), choose **New → Static Site**, pick this repository, leave
+the build command empty and set the publish directory to `public`. GitHub Pages, Netlify,
+Cloudflare Pages and the rest work the same way.
+
+**As a Node service:** **New → Blueprint** uses the included `render.yaml`, or create a Web
+Service by hand with build command `npm install` and start command `npm start`. The server
+binds to `0.0.0.0` automatically whenever the platform supplies `PORT`, so no environment
+variables are needed.
 
 ## Endpoints
 
