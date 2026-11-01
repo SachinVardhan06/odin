@@ -1,12 +1,11 @@
 services:
   - type: web
-    name: northwind-order-api
+    name: odin77
     runtime: node
     plan: free
     buildCommand: npm install
     startCommand: npm start
+    healthCheckPath: /health
     envVars:
-      - key: HOST
-        value: 0.0.0.0
       - key: NODE_VERSION
         value: "22"
