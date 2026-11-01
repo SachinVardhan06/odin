@@ -3,9 +3,9 @@
 Northwind customer portal: a small Node.js / Express REST API with an in-memory
 store and a single-page web front end in `public/`.
 
-Live demo: **https://odin77.onrender.com** — sign in as `alice` / `alice-pass-123`.
-The same host serves the REST API, so `https://odin77.onrender.com/orders` and the other
-endpoints below work against it directly. The free instance sleeps when idle, so the first
+Live demo: **https://odin77-qs1w.onrender.com** — sign in as `alice` / `alice-pass-123`.
+The same host serves the REST API, so `https://odin77-qs1w.onrender.com/orders` and the
+other endpoints below work against it directly. The free instance sleeps when idle, so the first
 request after a pause takes around a minute.
 
 See [FINDINGS.md](FINDINGS.md) for the vulnerabilities and how to reproduce each one.
